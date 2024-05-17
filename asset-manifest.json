@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-housing/static/css/main.5b04532b.css",
-    "main.js": "/react-housing/static/js/main.843cd95b.js",
+    "main.js": "/react-housing/static/js/main.4256400c.js",
     "index.html": "/react-housing/index.html",
     "main.5b04532b.css.map": "/react-housing/static/css/main.5b04532b.css.map",
-    "main.843cd95b.js.map": "/react-housing/static/js/main.843cd95b.js.map"
+    "main.4256400c.js.map": "/react-housing/static/js/main.4256400c.js.map"
   },
   "entrypoints": [
     "static/css/main.5b04532b.css",
-    "static/js/main.843cd95b.js"
+    "static/js/main.4256400c.js"
   ]
 }
