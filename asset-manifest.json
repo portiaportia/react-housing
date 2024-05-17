@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/portiaportia.github.io/react-housing/static/css/main.5b04532b.css",
-    "main.js": "/portiaportia.github.io/react-housing/static/js/main.4256400c.js",
+    "main.js": "/portiaportia.github.io/react-housing/static/js/main.843cd95b.js",
     "index.html": "/portiaportia.github.io/react-housing/index.html",
     "main.5b04532b.css.map": "/portiaportia.github.io/react-housing/static/css/main.5b04532b.css.map",
-    "main.4256400c.js.map": "/portiaportia.github.io/react-housing/static/js/main.4256400c.js.map"
+    "main.843cd95b.js.map": "/portiaportia.github.io/react-housing/static/js/main.843cd95b.js.map"
   },
   "entrypoints": [
     "static/css/main.5b04532b.css",
-    "static/js/main.4256400c.js"
+    "static/js/main.843cd95b.js"
   ]
 }
