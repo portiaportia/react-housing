@@ -1,0 +1,19 @@
+#main-nav ul {
+  list-style-type: none;
+  background: #5d878c;
+}
+
+#main-nav li {
+  display: inline-block;
+}
+
+#main-nav a {
+  text-decoration: none;
+  padding: 5px;
+  color: white;
+  display: block;
+}
+
+#main-nav a:hover {
+  background: #d98282;
+}

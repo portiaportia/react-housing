@@ -1,0 +1,15 @@
+.house-plan {
+  background-color: #d98282;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+
+.house-plan img {
+  max-width: 90%;
+}
+
+@media screen and (min-width: 600px) {
+  .columns {
+    display: flex;
+  }
+}
