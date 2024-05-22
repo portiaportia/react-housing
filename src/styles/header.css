@@ -1,7 +1,15 @@
 #main-header {
+  position: relative;
 }
 
 #main-header h1 {
   color: #5d878c;
   text-align: center;
+}
+
+#keys {
+  position: absolute;
+  top: 0;
+  height: 120%;
+  border-radius: 2px;
 }

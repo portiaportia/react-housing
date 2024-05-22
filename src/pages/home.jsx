@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import HousePlan from "../components/houseplan";
+import AddDialog from "../components/add-dialog";
 
 const Home = () => {
   const [housePlans, setHousePlans] = useState([]);
@@ -19,6 +20,8 @@ const Home = () => {
 
   return (
     <div>
+      <AddDialog />
+
       {housePlans.map((housePlan) => (
         <HousePlan
           key={housePlan.name}
