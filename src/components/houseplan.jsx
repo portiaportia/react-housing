@@ -1,7 +1,10 @@
 import "../styles/houseplan.css";
 
 const HousePlan = (housePlan) => {
-  const imageSrc = `https://portiaportia.github.io/json/images/house-plans/${housePlan.main_image}`;
+  //const imageSrc = `https://portiaportia.github.io/json/images/house-plans/${housePlan.main_image}`;
+  //const imageSrc = `http://localhost:3001/${housePlan.main_image}`;
+  //http://localhost:3001/
+  const imageSrc = `https://housing-backend-oubs.onrender.com/${housePlan.main_image}`;
   return (
     <section className="house-plan columns">
       <section className="feature-image">

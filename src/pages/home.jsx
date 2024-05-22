@@ -9,7 +9,9 @@ const Home = () => {
   useEffect(() => {
     (async () => {
       const response = await axios.get(
-        "https://portiaportia.github.io/json/house-plans.json"
+        // "https://portiaportia.github.io/json/house-plans.json"
+        //"http://localhost:3001/api/houses/"
+        "https://housing-backend-oubs.onrender.com/api/houses/"
       );
       setHousePlans(response.data);
     })();
