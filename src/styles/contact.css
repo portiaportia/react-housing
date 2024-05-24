@@ -1,0 +1,33 @@
+/* Form */
+#contact-form {
+  background: #d98282;
+  width: fit-content;
+  padding: 5px;
+  padding-right: 15px;
+}
+
+form {
+  margin: 0 2%;
+}
+
+form label {
+  font-size: 1em;
+  display: block;
+}
+
+form input:not([type="checkbox"]):not([type="radio"]),
+form textarea,
+form button,
+select {
+  font-size: 0.75em;
+  width: 200px;
+  padding: 5px;
+}
+
+.inline {
+  display: inline;
+}
+
+form textarea {
+  min-height: 200px;
+}

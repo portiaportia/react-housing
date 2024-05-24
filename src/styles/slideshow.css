@@ -1,0 +1,26 @@
+#slideshow {
+  border: 4px solid #f27d52;
+  text-align: center;
+}
+
+#slideshow img {
+  text-align: center;
+}
+#forward-arrow,
+#backward-arrow {
+  position: absolute;
+  top: 30%;
+  font-size: 3em;
+}
+
+#forward-arrow {
+  right: 25%;
+}
+
+#backward-arrow {
+  left: 30%;
+}
+
+.hidden {
+  display: none;
+}
