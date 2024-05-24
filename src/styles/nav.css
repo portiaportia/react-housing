@@ -5,10 +5,12 @@
 #main-nav ul {
   list-style-type: none;
   background: #5d878c;
+  padding-left: 0px;
 }
 
 #main-nav li {
-  display: inline-block;
+  display: block;
+  border-bottom: 1px solid white;
 }
 
 #main-nav a {
@@ -23,8 +25,11 @@
 }
 
 #toggle {
-  position: absolute;
   left: 5px;
+  background: #5d878c;
+  width: fit-content;
+  padding: 1px 3px;
+  margin-bottom: 2px;
 }
 
 #toggle div {
@@ -34,8 +39,21 @@
   margin: 6px 0;
 }
 
+.hide-small {
+  display: none;
+}
+
 @media only screen and (min-width: 600px) {
   #toggle {
     display: none;
+  }
+
+  .hide-small {
+    display: flex;
+  }
+
+  #main-nav li {
+    display: inline-block;
+    border-bottom: none;
   }
 }
