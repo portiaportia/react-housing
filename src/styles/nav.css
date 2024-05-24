@@ -21,3 +21,21 @@
 #main-nav a:hover {
   background: #d98282;
 }
+
+#toggle {
+  position: absolute;
+  left: 5px;
+}
+
+#toggle div {
+  width: 25px;
+  height: 2px;
+  background: white;
+  margin: 6px 0;
+}
+
+@media only screen and (min-width: 600px) {
+  #toggle {
+    display: none;
+  }
+}

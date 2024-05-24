@@ -9,7 +9,16 @@
 
 #keys {
   position: absolute;
-  top: 0;
-  height: 120%;
+  top: 6px;
+  height: 80%;
   border-radius: 2px;
+}
+
+@media only screen and (min-width: 600px) {
+  #keys {
+    position: absolute;
+    top: 0;
+    height: 120%;
+    border-radius: 2px;
+  }
 }
