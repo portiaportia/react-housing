@@ -10,30 +10,21 @@ const About = () => {
     require.context("../images/slideshow", false, /\.(png|jpe?g|svg)$/)
   );
 
-  const [featuredImageIndex, setFeaturedImageIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
   const slideForward = () => {
-    setFeaturedImageIndex(
-      featuredImageIndex === images.length - 1 ? 0 : featuredImageIndex + 1
-    );
+    setIndex(index === images.length - 1 ? 0 : index + 1);
   };
 
   const slideBackward = () => {
-    setFeaturedImageIndex(
-      featuredImageIndex === 0 ? images.length - 1 : featuredImageIndex - 1
-    );
+    setIndex(index === 0 ? images.length - 1 : index - 1);
   };
 
   return (
     <>
       <h1>About Us</h1>
       <div id="slideshow">
-        <img
-          key={images[featuredImageIndex]}
-          src={images[featuredImageIndex]}
-          alt={images[featuredImageIndex]}
-        />
-
+        <img src={images[index]} alt={images[index]} />
         <p id="forward-arrow" onClick={slideForward}>
           &gt;
         </p>
