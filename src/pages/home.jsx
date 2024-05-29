@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import HousePlan from "../components/houseplan";
+import AddDialog from "../components/add-dialog";
 
 const Home = () => {
   const [housePlans, setHousePlans] = useState([]);
@@ -10,15 +11,21 @@ const Home = () => {
     (async () => {
       const response = await axios.get(
         // "https://portiaportia.github.io/json/house-plans.json"
-        //"http://localhost:3001/api/houses/"
-        "https://housing-backend-oubs.onrender.com/api/houses/"
+        "http://localhost:3001/api/houses/"
+        //"https://housing-backend-oubs.onrender.com/api/houses/"
       );
       setHousePlans(response.data);
     })();
   }, []);
 
+  const addHousePlan = useCallback((housePlan) => {
+    setHousePlans((housePlans) => [...housePlans, housePlan]);
+  });
+
   return (
     <div>
+      <AddDialog addHousePlan={addHousePlan} />
+
       {housePlans.map((housePlan) => (
         <HousePlan
           key={housePlan.name}

@@ -1,0 +1,32 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+
+#dialog-section {
+  position: relative;
+}
+
+#add-house {
+  color: white;
+  background: #d98282;
+  position: absolute;
+  right: 1%;
+  top: -44px;
+  border: none;
+}
+
+#img-prev {
+  max-width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  #img-prev-section {
+    flex: 1;
+  }
+
+  #img-prev {
+    max-width: 100%;
+  }
+
+  #img-upload {
+    flex: 6;
+  }
+}
