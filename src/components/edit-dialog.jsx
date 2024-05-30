@@ -1,14 +1,16 @@
 import "../styles/dialog.css";
-import React, { useState} from "react";
+import React, { useState } from "react";
 
-const EditDialog = (housePlan, {hideDialog}) => {
-
-  const [inputs, setInputs] = useState({});
-  /*
+const EditDialog = (props) => {
+  //const [inputs, setInputs] = useState({});
+  console.log("props: " + props._id);
   const [inputs, setInputs] = useState({
-    size: housePlan.size
-});*/
-
+    _id: props._id,
+    name: props.name,
+    size: props.size,
+    bedrooms: props.bedrooms,
+    bathrooms: props.bathrooms,
+  });
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -29,21 +31,25 @@ const EditDialog = (housePlan, {hideDialog}) => {
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    const response = await fetch("http://localhost:3001/api/houses/", {
-      method: "PUT",
-      body: formData,
-    });
+    const response = await fetch(
+      `http://localhost:3001/api/houses/${props._id}`,
+      {
+        method: "PUT",
+        body: formData,
+      }
+    );
 
     if (response.status === 200) {
       setResult("House Successfully updated");
       event.target.reset(); //reset your form fields
-      //addHousePlan(await response.json());
+
+      props.editHousePlan(await response.json());
     } else {
-      console.log("Error adding house", response);
+      console.log("Error editing house", response);
       setResult(response.message);
     }
 
-    hideDialog();
+    props.hideDialog();
   };
 
   return (
@@ -53,7 +59,7 @@ const EditDialog = (housePlan, {hideDialog}) => {
           <span
             id="dialog-close"
             className="w3-button w3-display-topright"
-            onClick={hideDialog}
+            onClick={props.hideDialog}
           >
             &times;
           </span>

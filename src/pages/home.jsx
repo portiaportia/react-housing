@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import HousePlan from "../components/houseplan";
 import AddDialog from "../components/add-dialog";
@@ -10,17 +10,17 @@ const Home = () => {
   useEffect(() => {
     (async () => {
       const response = await axios.get(
-         "https://portiaportia.github.io/json/house-plans.json"
-        //"http://localhost:3001/api/houses/"
+        // "https://portiaportia.github.io/json/house-plans.json"
+        "http://localhost:3001/api/houses/"
         //"https://housing-backend-oubs.onrender.com/api/houses/"
       );
       setHousePlans(response.data);
     })();
   }, []);
 
-  const addHousePlan = useCallback((housePlan) => {
+  const addHousePlan = (housePlan) => {
     setHousePlans((housePlans) => [...housePlans, housePlan]);
-  });
+  };
 
   return (
     <div>
@@ -29,6 +29,7 @@ const Home = () => {
       {housePlans.map((housePlan) => (
         <HousePlan
           key={housePlan.name}
+          _id={housePlan._id}
           name={housePlan.name}
           size={housePlan.size}
           main_image={housePlan.main_image}
