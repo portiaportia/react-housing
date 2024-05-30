@@ -49,7 +49,7 @@ const EditDialog = (props) => {
       setResult(response.message);
     }
 
-    props.hideDialog();
+    props.hideEDialog();
   };
 
   return (
@@ -59,7 +59,7 @@ const EditDialog = (props) => {
           <span
             id="dialog-close"
             className="w3-button w3-display-topright"
-            onClick={props.hideDialog}
+            onClick={props.hideEDialog}
           >
             &times;
           </span>

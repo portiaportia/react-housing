@@ -1,9 +1,10 @@
 import "../styles/houseplan.css";
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import EditDialog from "./edit-dialog";
 
 const HousePlan = (props) => {
-  const [showDialog, setShowDialog] = useState(false);
+  const [showEDialog, setShowEDialog] = useState(false);
+  const [showDDialog, setShowDDialog] = useState(false);
   const [housePlan, setHousePlan] = useState(props);
 
   const imageSrc = `https://portiaportia.github.io/json/images/house-plans/${housePlan.main_image}`;
@@ -12,22 +13,30 @@ const HousePlan = (props) => {
   //const imageSrc = `https://housing-backend-oubs.onrender.com/${housePlan.main_image}`;
 
   const showEditDialog = () => {
-    setShowDialog(true);
+    setShowEDialog(true);
   };
 
-  const hideDialog = () => {
-    setShowDialog(false);
+  const hideEDialog = () => {
+    setShowEDialog(false);
   };
 
   const editHousePlan = (housePlan) => {
     setHousePlan(housePlan);
   };
 
+  const showDeleteDialog = () => {
+    setShowDDialog(true);
+  }
+
+  const hideDDialog = () => {
+    setShowDDialog(false);
+  };
+
   return (
     <div>
-      {showDialog ? (
+      {showEDialog ? (
         <EditDialog
-          hideDialog={hideDialog}
+          hideEDialog={hideEDialog}
           editHousePlan={editHousePlan}
           _id={housePlan._id}
           name={housePlan.name}
@@ -45,17 +54,20 @@ const HousePlan = (props) => {
           <img src={imageSrc} alt={housePlan.name} />
         </section>
         <section className="info">
-          <h3>
-            <a href="#" onClick={showEditDialog}>
-              {housePlan.name}
-            </a>
-          </h3>
+          <header class="columns">
+            <h3>{housePlan.name}</h3>
+            <section id="change-buttons">
+              <a href="#" onClick={showEditDialog}>&#9998;</a>
+              <a href="#" onClick={showDeleteDialog}>&#x2715;</a>
+            </section>
+          </header>
+          
 
           <p>Size: {housePlan.size}</p>
           <p>Bedrooms: {housePlan.bedrooms}</p>
           <p>Bathrooms: {housePlan.bathrooms}</p>
-        </section>
       </section>
+    </section>
     </div>
   );
 };
