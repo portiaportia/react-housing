@@ -1,6 +1,7 @@
 import "../styles/houseplan.css";
 import React, { useState } from "react";
 import EditDialog from "./edit-dialog";
+import DeleteDialog from "./delete-dialog";
 
 const HousePlan = (props) => {
   const [showEDialog, setShowEDialog] = useState(false);
@@ -16,6 +17,10 @@ const HousePlan = (props) => {
     setShowEDialog(true);
   };
 
+  const showDeleteDialog = () => {
+    setShowDDialog(true);
+  };
+
   const hideEDialog = () => {
     setShowEDialog(false);
   };
@@ -24,12 +29,12 @@ const HousePlan = (props) => {
     setHousePlan(housePlan);
   };
 
-  const showDeleteDialog = () => {
-    setShowDDialog(true);
-  }
-
   const hideDDialog = () => {
     setShowDDialog(false);
+  };
+
+  const deleteHousePlan = (housePlan) => {
+    //setHousePlan(housePlan);
   };
 
   return (
@@ -45,6 +50,16 @@ const HousePlan = (props) => {
           bedrooms={housePlan.bedrooms}
           bathrooms={housePlan.bathrooms}
           features={housePlan.features}
+        />
+      ) : (
+        ""
+      )}
+
+      {showDDialog ? (
+        <DeleteDialog
+          hideDDialog={hideDDialog}
+          deleteHousePlan={deleteHousePlan}
+          _id={housePlan._id}
         />
       ) : (
         ""
