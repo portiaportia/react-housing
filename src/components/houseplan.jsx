@@ -20,10 +20,7 @@ const HousePlan = (props) => {
   };
 
   const editHousePlan = (housePlan) => {
-    console.log("In edit");
-    console.log(housePlan);
     setHousePlan(housePlan);
-    console.log(housePlan.name);
   };
 
   return (
