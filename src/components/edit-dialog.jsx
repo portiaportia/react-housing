@@ -3,13 +3,13 @@ import React, { useState } from "react";
 
 const EditDialog = (props) => {
   //const [inputs, setInputs] = useState({});
-  console.log("props: " + props._id);
   const [inputs, setInputs] = useState({
     _id: props._id,
     name: props.name,
     size: props.size,
     bedrooms: props.bedrooms,
     bathrooms: props.bathrooms,
+    prev_img:props.main_image
   });
 
   const handleChange = (event) => {
@@ -114,7 +114,7 @@ const EditDialog = (props) => {
                 <img
                   id="img-prev"
                   src={
-                    inputs.img != null ? URL.createObjectURL(inputs.img) : ""
+                    inputs.img != null ? URL.createObjectURL(inputs.img) : (inputs.prev_img != null ? `https://portiaportia.github.io/json/images/house-plans/${inputs.prev_img}` : "")
                   }
                   alt=""
                 />

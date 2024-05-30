@@ -6,8 +6,8 @@ const HousePlan = (props) => {
   const [showDialog, setShowDialog] = useState(false);
   const [housePlan, setHousePlan] = useState(props);
 
-  //const imageSrc = `https://portiaportia.github.io/json/images/house-plans/${housePlan.main_image}`;
-  const imageSrc = `http://localhost:3001/${housePlan.main_image}`;
+  const imageSrc = `https://portiaportia.github.io/json/images/house-plans/${housePlan.main_image}`;
+  //const imageSrc = `http://localhost:3001/${housePlan.main_image}`;
   //localhost:3001/
   //const imageSrc = `https://housing-backend-oubs.onrender.com/${housePlan.main_image}`;
 
