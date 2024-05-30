@@ -4,6 +4,10 @@
   position: relative;
 }
 
+#edit-dialog {
+  display:block;
+}
+
 #add-house {
   color: white;
   background: #d98282;
