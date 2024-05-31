@@ -4,19 +4,24 @@
   margin-bottom: 10px;
 }
 
+.feature-image {
+  max-width: 25%;
+  width: fit-content;
+}
+
 .house-plan img {
   max-width: 90%;
 }
 
 #change-buttons {
-  margin-top:10px;
-  margin-left:20px;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 #change-buttons a {
   text-decoration: none;
-  font-size:1.5em;
-  margin-right:20px;
+  font-size: 1.5em;
+  margin-right: 20px;
 }
 
 @media screen and (min-width: 600px) {

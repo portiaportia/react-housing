@@ -4,86 +4,97 @@ import EditDialog from "./edit-dialog";
 import DeleteDialog from "./delete-dialog";
 
 const HousePlan = (props) => {
-  const [showEDialog, setShowEDialog] = useState(false);
-  const [showDDialog, setShowDDialog] = useState(false);
+  const [showEditDialog, setShowEditDialog] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [showHousePlan, setShowHousePlan] = useState(true);
   const [housePlan, setHousePlan] = useState(props);
 
-  const imageSrc = `https://portiaportia.github.io/json/images/house-plans/${housePlan.main_image}`;
-  //const imageSrc = `http://localhost:3001/${housePlan.main_image}`;
+  //const imageSrc = `https://portiaportia.github.io/json/images/house-plans/${housePlan.main_image}`;
+  const imageSrc = `http://localhost:3002/${housePlan.main_image}`;
   //localhost:3001/
   //const imageSrc = `https://housing-backend-oubs.onrender.com/${housePlan.main_image}`;
 
-  const showEditDialog = () => {
-    setShowEDialog(true);
+  const openEditDialog = () => {
+    setShowEditDialog(true);
   };
 
-  const showDeleteDialog = () => {
-    setShowDDialog(true);
+  const closeEditDialog = () => {
+    setShowEditDialog(false);
   };
 
-  const hideEDialog = () => {
-    setShowEDialog(false);
+  const openDeleteDialog = () => {
+    setShowDeleteDialog(true);
+  };
+
+  const closeDeleteDialog = () => {
+    setShowDeleteDialog(false);
   };
 
   const editHousePlan = (housePlan) => {
     setHousePlan(housePlan);
   };
 
-  const hideDDialog = () => {
-    setShowDDialog(false);
-  };
-
-  const deleteHousePlan = (housePlan) => {
-    //setHousePlan(housePlan);
+  const hideHousePlan = (housePlan) => {
+    setShowHousePlan(false);
   };
 
   return (
-    <div>
-      {showEDialog ? (
-        <EditDialog
-          hideEDialog={hideEDialog}
-          editHousePlan={editHousePlan}
-          _id={housePlan._id}
-          name={housePlan.name}
-          size={housePlan.size}
-          main_image={housePlan.main_image}
-          bedrooms={housePlan.bedrooms}
-          bathrooms={housePlan.bathrooms}
-          features={housePlan.features}
-        />
-      ) : (
-        ""
-      )}
+    <>
+      {showHousePlan ? (
+        <div>
+          {showEditDialog ? (
+            <EditDialog
+              closeDialog={closeEditDialog}
+              editHousePlan={editHousePlan}
+              _id={housePlan._id}
+              name={housePlan.name}
+              size={housePlan.size}
+              main_image={housePlan.main_image}
+              bedrooms={housePlan.bedrooms}
+              bathrooms={housePlan.bathrooms}
+              features={housePlan.features}
+            />
+          ) : (
+            ""
+          )}
 
-      {showDDialog ? (
-        <DeleteDialog
-          hideDDialog={hideDDialog}
-          deleteHousePlan={deleteHousePlan}
-          _id={housePlan._id}
-        />
-      ) : (
-        ""
-      )}
-      <section className="house-plan columns">
-        <section className="feature-image">
-          <img src={imageSrc} alt={housePlan.name} />
-        </section>
-        <section className="info">
-          <header class="columns">
-            <h3>{housePlan.name}</h3>
-            <section id="change-buttons">
-              <a href="#" onClick={showEditDialog}>&#9998;</a>
-              <a href="#" onClick={showDeleteDialog}>&#x2715;</a>
+          {showDeleteDialog ? (
+            <DeleteDialog
+              closeDialog={closeDeleteDialog}
+              hideHousePlan={hideHousePlan}
+              _id={housePlan._id}
+              name={housePlan.name}
+            />
+          ) : (
+            ""
+          )}
+          <section className="house-plan columns">
+            <section className="feature-image">
+              <img src={imageSrc} alt={housePlan.name} />
             </section>
-          </header>
-          
+            <section className="info">
+              <header className="columns">
+                <h3>{housePlan.name}</h3>
+                <section id="change-buttons">
+                  <a href="#" onClick={openEditDialog}>
+                    &#9998;
+                  </a>
+                  <a href="#" onClick={openDeleteDialog}>
+                    &#x2715;
+                  </a>
+                </section>
+              </header>
 
-          <p>Size: {housePlan.size}</p>
-          <p>Bedrooms: {housePlan.bedrooms}</p>
-          <p>Bathrooms: {housePlan.bathrooms}</p>
-      </section>
-    </section>
-    </div>
+              <p>Size: {housePlan.size}</p>
+              <p>Bedrooms: {housePlan.bedrooms}</p>
+              <p>Bathrooms: {housePlan.bathrooms}</p>
+            </section>
+          </section>
+        </div>
+      ) : (
+        ""
+      )}
+    </>
   );
 };
 

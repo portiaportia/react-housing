@@ -2,29 +2,25 @@ import "../styles/dialog.css";
 import React, { useState } from "react";
 
 const DeleteDialog = (props) => {
-    const [result, setResult] = useState("");
-    
-  const onDelete = async (event) => {
-/*
+  const [result, setResult] = useState("");
+
+  const deleteHousePlan = async (event) => {
     const response = await fetch(
-      `http://localhost:3001/api/houses/${props._id}`,
+      `http://localhost:3002/api/houses/${props._id}`,
       {
-        method: "DELETE"
+        method: "DELETE",
       }
     );
 
     if (response.status === 200) {
-      setResult("House Successfully deleted");
-      event.target.reset(); //reset your form fields
-
-      props.deleteHousePlan(await response.json());
+      setResult("House Plan Successfully deleted");
+      props.hideHousePlan();
     } else {
       console.log("Error deleting house", response);
       setResult(response.message);
     }
 
-    props.hideDDialog();
-    */
+    props.closeDialog();
   };
 
   return (
@@ -34,12 +30,17 @@ const DeleteDialog = (props) => {
           <span
             id="dialog-close"
             className="w3-button w3-display-topright"
-            onClick={props.hideDDialog}
+            onClick={props.closeDialog}
           >
             &times;
           </span>
-          <div>
-            <h1>Hello Portia</h1>
+          <div id="delete-content">
+            <h3>Are you sure you want to delete the {props.name}</h3>
+            <section>
+              <button onClick={deleteHousePlan}>Yes</button>
+              <button onClick={props.closeDialog}>No</button>
+            </section>
+            <span>{result}</span>
           </div>
         </div>
       </div>

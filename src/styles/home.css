@@ -1,0 +1,12 @@
+#home {
+  position: relative;
+}
+
+#add-house {
+  color: white;
+  background: #d98282;
+  position: absolute;
+  right: 1%;
+  top: -44px;
+  border: none;
+}

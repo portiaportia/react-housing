@@ -2,14 +2,13 @@ import "../styles/dialog.css";
 import React, { useState } from "react";
 
 const EditDialog = (props) => {
-  //const [inputs, setInputs] = useState({});
   const [inputs, setInputs] = useState({
     _id: props._id,
     name: props.name,
     size: props.size,
     bedrooms: props.bedrooms,
     bathrooms: props.bathrooms,
-    prev_img:props.main_image
+    prev_img: props.main_image,
   });
 
   const handleChange = (event) => {
@@ -32,7 +31,7 @@ const EditDialog = (props) => {
     const formData = new FormData(event.target);
 
     const response = await fetch(
-      `http://localhost:3001/api/houses/${props._id}`,
+      `http://localhost:3002/api/houses/${props._id}`,
       {
         method: "PUT",
         body: formData,
@@ -42,14 +41,12 @@ const EditDialog = (props) => {
     if (response.status === 200) {
       setResult("House Successfully updated");
       event.target.reset(); //reset your form fields
-
       props.editHousePlan(await response.json());
+      props.closeDialog();
     } else {
       console.log("Error editing house", response);
       setResult(response.message);
     }
-
-    props.hideEDialog();
   };
 
   return (
@@ -59,7 +56,7 @@ const EditDialog = (props) => {
           <span
             id="dialog-close"
             className="w3-button w3-display-topright"
-            onClick={props.hideEDialog}
+            onClick={props.closeDialog}
           >
             &times;
           </span>
@@ -114,7 +111,11 @@ const EditDialog = (props) => {
                 <img
                   id="img-prev"
                   src={
-                    inputs.img != null ? URL.createObjectURL(inputs.img) : (inputs.prev_img != null ? `https://portiaportia.github.io/json/images/house-plans/${inputs.prev_img}` : "")
+                    inputs.img != null
+                      ? URL.createObjectURL(inputs.img)
+                      : inputs.prev_img != null
+                      ? `http://localhost:3002/${inputs.prev_img}`
+                      : ""
                   }
                   alt=""
                 />
