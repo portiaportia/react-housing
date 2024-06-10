@@ -48,7 +48,7 @@ const Home = () => {
           _id={housePlan._id}
           name={housePlan.name}
           size={housePlan.size}
-          main_image={housePlan.main_image}
+          img={housePlan.img}
           bedrooms={housePlan.bedrooms}
           bathrooms={housePlan.bathrooms}
           features={housePlan.features}

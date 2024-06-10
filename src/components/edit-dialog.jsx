@@ -8,7 +8,7 @@ const EditDialog = (props) => {
     size: props.size,
     bedrooms: props.bedrooms,
     bathrooms: props.bathrooms,
-    prev_img: props.main_image,
+    prev_img: props.img,
   });
 
   const handleChange = (event) => {

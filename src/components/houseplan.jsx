@@ -10,7 +10,7 @@ const HousePlan = (props) => {
   const [housePlan, setHousePlan] = useState(props);
 
   //const imageSrc = `https://portiaportia.github.io/json/images/house-plans/${housePlan.main_image}`;
-  const imageSrc = `http://localhost:3002/${housePlan.main_image}`;
+  const imageSrc = `http://localhost:3002/${housePlan.img}`;
   //localhost:3001/
   //const imageSrc = `https://housing-backend-oubs.onrender.com/${housePlan.main_image}`;
 
@@ -49,7 +49,7 @@ const HousePlan = (props) => {
               _id={housePlan._id}
               name={housePlan.name}
               size={housePlan.size}
-              main_image={housePlan.main_image}
+              img={housePlan.img}
               bedrooms={housePlan.bedrooms}
               bathrooms={housePlan.bathrooms}
               features={housePlan.features}
